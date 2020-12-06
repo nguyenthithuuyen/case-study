@@ -7,7 +7,7 @@ class snake {
         this.dx = this.grid;
         this.dy = 0;
         this.cell = [];
-        this.maxCells = 10;
+        this.maxCells = 1;
     }
     update() {
         if (this.endGame()){
