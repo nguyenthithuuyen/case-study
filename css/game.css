@@ -1,6 +1,11 @@
 body{
     background-color:aqua;
 }
-canvas{
-    border: 2px solid black;
+#control{
+    width: max-content;
+    margin: 10px auto;
+}
+h2{
+    width: max-content;
+    margin: 10px auto;
 }

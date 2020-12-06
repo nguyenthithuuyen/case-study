@@ -56,6 +56,7 @@ class snake {
     eat(x, y) {
         if (this.x == x && this.y == y) {
             this.maxCells++;
+            g.addScore();
             return true;
         }
         return false;
@@ -66,6 +67,7 @@ class snake {
                 return false;
             }
         }
+        g.score = 0;
         return true;
     }
 }

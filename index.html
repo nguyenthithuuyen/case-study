@@ -6,9 +6,36 @@
 
     <link rel="stylesheet" href="css/game.css">
 </head>
-<body>
-</body>
+<body onload="loadGame()">
+<canvas id="canvas" width="400" height="400" style="border: 1px solid; margin: auto; display: block"></canvas>
+<h2>Score: <span id="score">0</span></h2>
+<div id="control">
+    <button id="btn-play" onclick="play()">Play</button>
+    <button id="btn-pause" onclick="pause()">Pause</button>
+</div>
 <script src="js/snake.js"></script>
 <script src="js/food.js"></script>
 <script src="js/game.js"></script>
+<script>
+
+    function loadGame() {
+        document.getElementById('btn-pause').disabled = true;
+    }
+
+    function play() {
+        g.play();
+        document.getElementById('btn-pause').disabled = false;
+        document.getElementById('btn-play').disabled = true;
+    }
+
+    function pause() {
+        g.pause();
+        document.getElementById('btn-play').disabled = false;
+        document.getElementById('btn-pause').disabled = true;
+    }
+
+</script>
+
+</body>
+
 </html>
