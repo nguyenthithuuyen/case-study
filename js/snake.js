@@ -7,7 +7,7 @@ class snake {
         this.dx = this.grid;
         this.dy = 0;
         this.cell = [];
-        this.maxCells = 5;
+        this.maxCells = 10;
     }
     update() {
         if (this.endGame()){
@@ -32,8 +32,14 @@ class snake {
     }
     draw() {
         for (let i = 0; i < this.cell.length; i++) {
-            this.game.context.fillStyle = 'violet';
-            this.game.context.fillRect(this.cell[i].x, this.cell[i].y, this.grid, this.grid);
+            if (i == 0){
+                this.game.context.fillStyle = '#000000';
+                this.game.context.fillRect(this.cell[i].x, this.cell[i].y, this.grid, this.grid);
+            }
+            else{
+                this.game.context.fillStyle = '#8e8e8e';
+                this.game.context.fillRect(this.cell[i].x, this.cell[i].y, this.grid, this.grid);
+            }
         }
     }
     catchHandel() {
@@ -61,13 +67,16 @@ class snake {
         }
         return false;
     }
+    die(){
+        g.gameOver();
+    }
     endGame() {
         for (let i = 1; i < this.cell.length; i++) {
             if (this.x == this.cell[i].x && this.y == this.cell[i].y) {
+                setTimeout(this.die, 1000);
                 return false;
             }
         }
-        g.score = 0;
         return true;
     }
 }

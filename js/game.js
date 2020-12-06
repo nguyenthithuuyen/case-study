@@ -18,7 +18,7 @@ class game {
     }
 
     play() {
-        runTime = setInterval(() => this.loop(), 60);
+        runTime = setInterval(() => this.loop(), 100);
     }
 
     pause() {
@@ -33,6 +33,14 @@ class game {
         this.update();
         this.draw();
         this.drawScore();
+    }
+
+    gameOver(){
+        clearInterval(runTime);
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+        this.context.fillStyle = '#fd1616'
+        this.context.font = '40px Serif';
+        this.context.fillText('GAME OVER', 100, 100);
     }
 
     update() {
